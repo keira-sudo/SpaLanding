@@ -1,3 +1,7 @@
+/* ==========================================================================
+   PARTIE 1 : VOTRE CODE ORIGINAL POUR ORDINATEUR (INTACT)
+   ========================================================================== */
+
 /* --- Variables & Style de Base --- */
 :root {
     --primary-color: #D91B5C; /* Rose principal de Spabooking */
@@ -32,8 +36,7 @@ img {
 }
 
 /* --- Barre promotionnelle --- */
-.desdes 
-{
+.desdes {
     text-align: center;
     background-color: #D4AF37;
     color: white;
@@ -43,10 +46,9 @@ img {
     white-space: nowrap;
 }
 
-.sliding-text 
-{
-    display: inline-block ;
-    padding-left: 100% ;
+.sliding-text {
+    display: inline-block;
+    padding-left: 100%;
     margin: 5px;
     animation: slide-left 25s linear infinite;
 }
@@ -77,6 +79,11 @@ img {
 
 .logo img {
     height: 40px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
 }
 
 .nav a {
@@ -179,7 +186,7 @@ img {
 }
 
 .cta-button:hover {
-    background-color: #17a689; /* Un peu plus sombre au survol */
+    background-color: #17a689;
 }
 
 /* --- CTA Final --- */
@@ -217,40 +224,57 @@ img {
     color: #eee;
 }
 
-/* =====================================================================
-   CORRECTIONS FINALES POUR MOBILE (basé sur votre photo)
-   ===================================================================== */
+/* ==========================================================================
+   PARTIE 2 : CORRECTIONS POUR MOBILE (STRICTEMENT ISOLÉES)
+   ========================================================================== */
+
 @media (max-width: 768px) {
 
-    /* --- CORRECTION N°1 : LA PLUS IMPORTANTE --- */
-    /* Empêche la page de déborder et de créer un scroll horizontal */
+    /* CORRECTION N°1 : Empêche la page de déborder sur le côté */
     html, body {
         overflow-x: hidden;
     }
 
-    /* --- CORRECTION N°2 : Permet au header de respirer --- */
-    /* Les éléments peuvent maintenant passer à la ligne et se centrer */
+    /* CORRECTION N°2 : Réorganise le header proprement */
     .header .container {
-        flex-wrap: wrap; /* L'instruction clé qui manquait ! */
-        justify-content: center; /* Centre les éléments */
-        gap: 15px; /* Ajoute de l'espace si les éléments passent à la ligne */
+        flex-direction: column; /* Empile le logo et la navigation */
+        align-items: center;   /* Centre les deux blocs */
+        gap: 15px;             /* Crée un espace entre le logo et la nav */
     }
 
-    /* --- CORRECTION N°3 : On ajuste un peu les tailles pour que ça reste joli --- */
+    .nav {
+        width: 100%; /* Permet aux liens d'être centrés correctement */
+        justify-content: center; /* Centre les liens dans la barre de nav */
+    }
+
+    .nav a {
+        margin-left: 10px;  /* Ajuste l'espace entre les liens pour mobile */
+        margin-right: 10px;
+    }
+
+    /* CORRECTION N°3 : Ajuste les titres et les espaces pour une meilleure lisibilité */
+    .hero {
+        padding: 40px 20px;
+    }
     .hero h1 {
         font-size: 2.2rem;
+        line-height: 1.2;
     }
-    .top-spas h2 {
-        font-size: 2rem;
+    .hero .subtitle {
+        font-size: 1rem;
     }
 
-    /* --- CORRECTION N°4 : Le footer se centre bien --- */
+    .top-spas {
+        padding: 40px 15px;
+    }
+    .top-spas h2 {
+        font-size: 1.8rem;
+    }
+
+    /* CORRECTION N°4 : Centre le footer */
     .footer .container {
         flex-direction: column;
         text-align: center;
         gap: 15px;
-    }
-    .footer-links {
-        margin-top: 0;
     }
 }
