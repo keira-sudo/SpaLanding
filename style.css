@@ -52,18 +52,21 @@ img {
     100% { transform: translate(-100%, 0); }
 }
 
-/* Header */
+/* navbar */
 .header {
     background-color: var(--primary-color);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Ensure header stays on top */
 }
 
 .header .container {
     display: flex;
+    flex-wrap: wrap; /* Allows items to wrap if they exceed container width */
     justify-content: space-between;
     align-items: center;
+    gap: 10px; /* Space between flex items */
+    padding: 10px 20px; /* Add some padding around the header content */
 }
 
 .logo img {
@@ -73,25 +76,27 @@ img {
 
 .brand-name {
     color: white;
-    font-size: 22px;    
-    margin-left: -720px ;
+    font-size: 22px;
+    flex-shrink: 0; /* Prevent brand name from shrinking too much */
 }
 
 .nav {
-    display: flex;
+    display: flex; /* Keep nav itself as flex container */
     align-items: center;
-    position: relative;
+    /* Remove position: relative here if not needed for toggle */
 }
 
 .nav .nav-links {
-    display: flex;
-    gap: 20px;
+    display: flex; /* Always display as flex to keep links side-by-side */
+    gap: 20px; /* Space between navigation links */
+    flex-wrap: nowrap; /* Prevent links from wrapping to new lines by default */
+    /* Adjust flex-shrink for links if they need to shrink more than others */
 }
 
 .nav a {
     color: white;
     font-weight: 500;
-    white-space: nowrap;
+    white-space: nowrap; /* Keep link text on single line */
 }
 
 .cta-button-header {
@@ -99,16 +104,9 @@ img {
     padding: 8px 16px;
     border-radius: 5px;
     color: white;
+    white-space: nowrap; /* Ensure button text stays on one line */
 }
 
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    cursor: pointer;
-}
 
 /* Hero */
 .hero {
@@ -217,55 +215,107 @@ img {
 
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
-    html, body {
+    /* No overflow-x hidden, might cause scroll if content is too wide */
+    /* html, body {
         overflow-x: hidden;
-    }
+    } */
 
     .header .container {
-        flex-direction: column;
-        align-items: flex-start;
+        /* Allow content to wrap if it's too wide, but try to keep it on one line */
+        flex-wrap: nowrap; /* Keep on one line to force horizontal scroll if needed */
+        justify-content: flex-start; /* Align items to the start */
+        gap: 5px; /* Reduce gap on smaller screens */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .logo img {
+        height: 40px; /* Make logo slightly smaller on mobile */
     }
 
     .brand-name {
-        font-size: 1rem;
-    }
-
-    .nav-toggle {
-        display: block;
-        margin-top: 10px;
+        font-size: 18px; /* Slightly smaller brand name */
+        margin-right: 10px; /* Add some space after brand name */
     }
 
     .nav .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        display: none;
-        background-color: var(--primary-color);
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
+        /* Keep flex-direction row for horizontal display */
+        flex-direction: row;
+        /* Do NOT set display: none; */
+        display: flex; /* Always display */
+        gap: 10px; /* Reduce gap between nav links */
+        /* Allow links to shrink if needed, but white-space: nowrap will still make them overflow */
+        flex-shrink: 1;
+        overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .nav-links a {
-        padding: 10px 20px;
-        font-size: 1rem;
+        font-size: 0.9rem; /* Slightly smaller font for links */
+        padding: 5px 8px; /* Reduce padding for links */
+        white-space: nowrap; /* Still prevent text wrapping within links */
     }
 
+    .cta-button-header {
+        padding: 6px 10px; /* Smaller padding for the button */
+        font-size: 0.9rem; /* Smaller font for the button */
+        flex-shrink: 0; /* Prevent the button from shrinking too much */
+    }
+
+    /* Adjust hero section for smaller screens */
+    .hero {
+        padding: 50px 15px;
+    }
     .hero h1 {
-        font-size: 2rem;
-    }
-    .hero .subtitle {
-        font-size: 1rem;
-    }
-    .top-spas h2 {
         font-size: 1.8rem;
     }
+    .hero .subtitle {
+        font-size: 0.95rem;
+    }
 
+    /* Adjust top-spas section */
+    .top-spas h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    .spa-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+    }
+    .card-content {
+        padding: 20px;
+    }
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Adjust final CTA */
+    .final-cta {
+        padding: 40px 15px;
+        margin-top: 40px;
+    }
+    .final-cta h2 {
+        font-size: 1.8rem;
+    }
+    .final-cta p {
+        font-size: 0.95rem;
+    }
+    .cta-button.large {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+
+    /* Footer adjustments */
     .footer .container {
         flex-direction: column;
         text-align: center;
-        gap: 15px;
+        gap: 10px;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .footer-links a {
+        margin: 0; /* Remove horizontal margins */
     }
 }
