@@ -31,7 +31,7 @@ img {
     height: auto;
 }
 
-/* --- Barre promotionnelle (Votre ajout) --- */
+/* --- Barre promotionnelle --- */
 .desdes 
 {
     text-align: center;
@@ -218,58 +218,39 @@ img {
 }
 
 /* =====================================================================
-   PARTIE CI-DESSOUS : ADAPTATION POUR TÉLÉPHONE (NE RIEN CHANGER)
+   CORRECTIONS FINALES POUR MOBILE (basé sur votre photo)
    ===================================================================== */
 @media (max-width: 768px) {
 
-    /* --- Correction n°1 : Empêcher la page de déborder sur le côté --- */
-    body {
+    /* --- CORRECTION N°1 : LA PLUS IMPORTANTE --- */
+    /* Empêche la page de déborder et de créer un scroll horizontal */
+    html, body {
         overflow-x: hidden;
     }
 
-    /* --- Correction n°2 : Garder la barre de navigation sur une seule ligne mais en plus compact --- */
+    /* --- CORRECTION N°2 : Permet au header de respirer --- */
+    /* Les éléments peuvent maintenant passer à la ligne et se centrer */
     .header .container {
-        padding-left: 10px;
-        padding-right: 10px;
+        flex-wrap: wrap; /* L'instruction clé qui manquait ! */
+        justify-content: center; /* Centre les éléments */
+        gap: 15px; /* Ajoute de l'espace si les éléments passent à la ligne */
     }
 
-    .logo img {
-        height: 30px; /* Logo plus petit */
-    }
-    
-    .nav a {
-        margin-left: 8px; /* Moins d'espace entre les liens */
-        font-size: 0.85rem; /* Police plus petite pour les liens */
-    }
-    
-    .cta-button-header {
-        padding: 6px 10px; /* Bouton "Réserver" plus petit */
-        font-size: 0.85rem;
-    }
-
-    /* --- Correction n°3 : Ajuster les titres pour mobile --- */
-    .hero {
-        padding: 40px 20px;
-    }
+    /* --- CORRECTION N°3 : On ajuste un peu les tailles pour que ça reste joli --- */
     .hero h1 {
-        font-size: 1.8rem;
-        line-height: 1.3;
-    }
-    .hero .subtitle {
-        font-size: 1rem;
-    }
-    
-    .top-spas {
-        padding-top: 40px;
+        font-size: 2.2rem;
     }
     .top-spas h2 {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 
-    /* --- Correction n°4 : Réorganiser le footer pour mobile --- */
+    /* --- CORRECTION N°4 : Le footer se centre bien --- */
     .footer .container {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+    .footer-links {
+        margin-top: 0;
     }
 }
