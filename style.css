@@ -1,0 +1,236 @@
+/* --- Variables & Style de Base --- */
+:root {
+    --primary-color: #D91B5C; /* Bleu/Vert foncé de Spabooking */
+    --accent-color: #1abc9c;  /* Vert menthe pour les boutons */
+    --dark-color: #2c3e50;    /* Texte principal */
+    --light-gray: #f8f9fa;   /* Arrière-plan des sections */
+    --white-color: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Header --- */
+.header {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav a {
+    color: var(--white-color);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+    opacity: 0.8;
+}
+
+.cta-button-header {
+    background-color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+/* --- Section Hero --- */
+.hero {
+    background-color: var(--light-gray);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Section Top Spas --- */
+.top-spas {
+    padding: 60px 0;
+}
+
+.top-spas h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+}
+
+.spa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.spa-card {
+    background: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.spa-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: var(--dark-color);
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #17a689; /* Un peu plus sombre au survol */
+}
+
+/* --- CTA Final --- */
+.final-cta {
+    text-align: center;
+    background-color: var(--light-gray);
+    padding: 50px 20px;
+    margin-top: 60px;
+    border-radius: 8px;
+}
+.final-cta h2 {
+    color: var(--primary-color);
+}
+.cta-button.large {
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    border-radius: 20px;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-links a {
+    margin-left: 15px;
+    color: #eee;
+}
+
+/* --- Media Queries pour la Responsivité --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .top-spas h2 {
+        font-size: 2rem;
+    }
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-links {
+        margin-top: 10px;
+    }
+}
+
+
+.desdes 
+{
+    text-align: center;
+    background-color: #D4AF37;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sliding-text 
+{
+    display: inline-block ;
+    padding-left: 100% ;
+    margin: 5px;
+    animation: slide-left 25s linear infinite;
+ 
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0); /* Déplace le texte complètement vers la gauche */
+    }
+}
