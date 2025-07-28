@@ -77,8 +77,16 @@ img {
     align-items: center;
 }
 
+/* Style pour le logo, qu'il soit une image ou du texte */
+.logo {
+    font-size: 1.5rem; /* Taille du texte "SpaBooking" */
+    font-weight: 600;
+    color: var(--white-color);
+}
+
 .logo img {
     height: 40px;
+    display: block; /* Évite les espaces fantômes sous l'image */
 }
 
 .nav {
@@ -91,6 +99,7 @@ img {
     margin-left: 20px;
     font-weight: 500;
     transition: opacity 0.3s ease;
+    white-space: nowrap; /* Empêche les textes comme "À Propos" de se couper */
 }
 
 .nav a:hover {
@@ -225,7 +234,7 @@ img {
 }
 
 /* ==========================================================================
-   PARTIE 2 : CORRECTIONS POUR MOBILE (STRICTEMENT ISOLÉES)
+   PARTIE 2 : CORRECTIONS FINALES POUR MOBILE (basé sur votre photo)
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -235,37 +244,38 @@ img {
         overflow-x: hidden;
     }
 
-    /* CORRECTION N°2 : Réorganise le header proprement */
+    /* CORRECTION N°2 : Rend la barre de navigation compacte */
     .header .container {
-        flex-direction: column; /* Empile le logo et la navigation */
-        align-items: center;   /* Centre les deux blocs */
-        gap: 15px;             /* Crée un espace entre le logo et la nav */
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .nav {
-        width: 100%; /* Permet aux liens d'être centrés correctement */
-        justify-content: center; /* Centre les liens dans la barre de nav */
+    /* On réduit la taille du logo (texte ou image) */
+    .logo {
+        font-size: 1.2rem; /* Texte "SpaBooking" plus petit */
+    }
+    .logo img {
+        height: 30px; /* Si c'est une image, elle sera plus petite */
     }
 
+    /* On rend les liens de navigation plus petits et plus serrés */
     .nav a {
-        margin-left: 10px;  /* Ajuste l'espace entre les liens pour mobile */
-        margin-right: 10px;
+        margin-left: 8px; /* Moins d'espace entre les liens */
+        font-size: 0.8rem; /* Police plus petite */
+    }
+    
+    /* On rend le bouton "Réserver" plus petit */
+    .cta-button-header {
+        padding: 6px 10px;
     }
 
-    /* CORRECTION N°3 : Ajuste les titres et les espaces pour une meilleure lisibilité */
-    .hero {
-        padding: 40px 20px;
-    }
+    /* CORRECTION N°3 : Ajuste les titres du reste de la page */
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         line-height: 1.2;
     }
     .hero .subtitle {
         font-size: 1rem;
-    }
-
-    .top-spas {
-        padding: 40px 15px;
     }
     .top-spas h2 {
         font-size: 1.8rem;
