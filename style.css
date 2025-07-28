@@ -1,13 +1,8 @@
-/* ==========================================================================
-   PARTIE 1 : VOTRE CODE ORIGINAL POUR ORDINATEUR (INTACT)
-   ========================================================================== */
-
-/* --- Variables & Style de Base --- */
 :root {
-    --primary-color: #D91B5C; /* Rose principal de Spabooking */
-    --accent-color: #1abc9c;  /* Vert menthe pour les boutons */
-    --dark-color: #2c3e50;    /* Texte principal */
-    --light-gray: #f8f9fa;   /* Arrière-plan des sections */
+    --primary-color: #D91B5C;
+    --accent-color: #1abc9c;
+    --dark-color: #2c3e50;
+    --light-gray: #f8f9fa;
     --white-color: #ffffff;
     --font-family: 'Poppins', sans-serif;
 }
@@ -35,7 +30,6 @@ img {
     height: auto;
 }
 
-/* --- Barre promotionnelle --- */
 .desdes {
     text-align: center;
     background-color: #D4AF37;
@@ -54,18 +48,13 @@ img {
 }
 
 @keyframes slide-left {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-100%, 0);
-    }
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
 }
 
-/* --- Header --- */
+/* Header */
 .header {
     background-color: var(--primary-color);
-    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -77,54 +66,60 @@ img {
     align-items: center;
 }
 
-/* Style pour le logo, qu'il soit une image ou du texte */
-.logo {
-    font-size: 1.5rem; /* Taille du texte "SpaBooking" */
-    font-weight: 600;
-    color: var(--white-color);
+.logo img {
+    height: 50px;
+    border-radius: 11px;
 }
 
-.logo img {
-    height: 40px;
-    display: block; /* Évite les espaces fantômes sous l'image */
+.brand-name {
+    color: white;
+    font-size: 22px;    
+    margin-left: -720px ;
 }
 
 .nav {
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.nav .nav-links {
+    display: flex;
+    gap: 20px;
 }
 
 .nav a {
-    color: var(--white-color);
-    margin-left: 20px;
+    color: white;
     font-weight: 500;
-    transition: opacity 0.3s ease;
-    white-space: nowrap; /* Empêche les textes comme "À Propos" de se couper */
-}
-
-.nav a:hover {
-    opacity: 0.8;
+    white-space: nowrap;
 }
 
 .cta-button-header {
     background-color: var(--accent-color);
     padding: 8px 16px;
     border-radius: 5px;
+    color: white;
 }
 
-/* --- Section Hero --- */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Hero */
 .hero {
     background-color: var(--light-gray);
     text-align: center;
     padding: 80px 20px;
 }
-
 .hero h1 {
     font-size: 3rem;
     color: var(--primary-color);
-    margin-bottom: 10px;
 }
-
 .hero .subtitle {
     font-size: 1.2rem;
     color: #555;
@@ -132,24 +127,21 @@ img {
     margin: 0 auto;
 }
 
-/* --- Section Top Spas --- */
+/* Top Spas */
 .top-spas {
     padding: 60px 0;
 }
-
 .top-spas h2 {
     text-align: center;
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 50px;
 }
-
 .spa-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
-
 .spa-card {
     background: var(--white-color);
     border-radius: 8px;
@@ -157,48 +149,39 @@ img {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .spa-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
-
 .spa-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-
 .card-content {
     padding: 25px;
 }
-
 .card-content h3 {
     font-size: 1.5rem;
-    margin-top: 0;
     color: var(--dark-color);
 }
-
 .card-content p {
     font-size: 0.95rem;
     margin-bottom: 25px;
 }
-
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
-    color: var(--white-color);
+    color: white;
     padding: 12px 25px;
     border-radius: 5px;
     font-weight: 600;
-    transition: background-color 0.3s ease;
 }
-
 .cta-button:hover {
     background-color: #17a689;
 }
 
-/* --- CTA Final --- */
+/* CTA Final */
 .final-cta {
     text-align: center;
     background-color: var(--light-gray);
@@ -215,12 +198,11 @@ img {
     border-radius: 20px;
 }
 
-/* --- Footer --- */
+/* Footer */
 .footer {
     background-color: var(--primary-color);
-    color: var(--white-color);
+    color: white;
     padding: 20px 0;
-    margin-top: 40px;
 }
 .footer .container {
     display: flex;
@@ -233,46 +215,46 @@ img {
     color: #eee;
 }
 
-/* ==========================================================================
-   PARTIE 2 : CORRECTIONS FINALES POUR MOBILE (basé sur votre photo)
-   ========================================================================== */
-
+/* ========== Responsive ========== */
 @media (max-width: 768px) {
-
-    /* CORRECTION N°1 : Empêche la page de déborder sur le côté */
     html, body {
         overflow-x: hidden;
     }
 
-    /* CORRECTION N°2 : Rend la barre de navigation compacte */
     .header .container {
-        padding-left: 10px;
-        padding-right: 10px;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    /* On réduit la taille du logo (texte ou image) */
-    .logo {
-        font-size: 1.2rem; /* Texte "SpaBooking" plus petit */
-    }
-    .logo img {
-        height: 30px; /* Si c'est une image, elle sera plus petite */
+    .brand-name {
+        font-size: 1rem;
     }
 
-    /* On rend les liens de navigation plus petits et plus serrés */
-    .nav a {
-        margin-left: 8px; /* Moins d'espace entre les liens */
-        font-size: 0.8rem; /* Police plus petite */
-    }
-    
-    /* On rend le bouton "Réserver" plus petit */
-    .cta-button-header {
-        padding: 6px 10px;
+    .nav-toggle {
+        display: block;
+        margin-top: 10px;
     }
 
-    /* CORRECTION N°3 : Ajuste les titres du reste de la page */
+    .nav .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        background-color: var(--primary-color);
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
     .hero h1 {
         font-size: 2rem;
-        line-height: 1.2;
     }
     .hero .subtitle {
         font-size: 1rem;
@@ -281,7 +263,6 @@ img {
         font-size: 1.8rem;
     }
 
-    /* CORRECTION N°4 : Centre le footer */
     .footer .container {
         flex-direction: column;
         text-align: center;
